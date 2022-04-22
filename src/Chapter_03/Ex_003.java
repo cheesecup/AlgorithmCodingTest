@@ -22,11 +22,16 @@ public class Ex_003 {
             S[i] = S[i-1] + Integer.parseInt(stringTokenizer.nextToken());
         }
 
+        long[] res = new long[M];
         for (int k = 0; k < M; k++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
             int i = Integer.parseInt(stringTokenizer.nextToken());
             int j = Integer.parseInt(stringTokenizer.nextToken());
-            System.out.println(S[j] - S[i-1]);
+            res[k] = S[j] - S[i-1];
+        }
+
+        for (int i = 0; i < M; i++) {
+            System.out.println(res[i]);
         }
     }
 }
