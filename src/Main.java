@@ -5,6 +5,7 @@ import Chapter_03.Ex_003;
 import Chapter_03.Ex_004;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -14,6 +15,5 @@ public class Main {
         Ex_003 ex_003 = new Ex_003(); // 구간 합 구하기
         Ex_004 ex_004 = new Ex_004(); // 구간 합 구하기2
         ex_004.P11660();
-
     }
 }
