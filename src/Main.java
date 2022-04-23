@@ -1,8 +1,5 @@
 import Chapter_01.Ex_000;
-import Chapter_03.Ex_001;
-import Chapter_03.Ex_002;
-import Chapter_03.Ex_003;
-import Chapter_03.Ex_004;
+import Chapter_03.*;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -14,6 +11,8 @@ public class Main {
         Ex_002 ex_002 = new Ex_002(); // 평균 구하기
         Ex_003 ex_003 = new Ex_003(); // 구간 합 구하기
         Ex_004 ex_004 = new Ex_004(); // 구간 합 구하기2
-        ex_004.P11660();
+        Ex_005 ex_005 = new Ex_005(); // 나머지 합 구하기
+        Ex_006 ex_006 = new Ex_006(); // 연속된 자연수의 합 구하기
+        ex_006.P2018();
     }
 }
