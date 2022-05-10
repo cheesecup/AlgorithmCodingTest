@@ -1,4 +1,4 @@
-package Chapter_01;
+package CodingTest.Chapter_01;
 
 public class Ex_000 {
     public void timeComplexityExample1() {

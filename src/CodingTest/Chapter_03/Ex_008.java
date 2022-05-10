@@ -1,11 +1,10 @@
-package Chapter_03;
+package CodingTest.Chapter_03;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-import java.util.zip.ZipEntry;
 
 public class Ex_008 {
 

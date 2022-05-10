@@ -1,4 +1,4 @@
-package Chapter_03;
+package CodingTest.Chapter_03;
 
 import java.io.BufferedReader;
 import java.io.IOException;
