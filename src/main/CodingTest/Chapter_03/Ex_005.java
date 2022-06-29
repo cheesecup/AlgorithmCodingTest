@@ -1,47 +1,36 @@
-package main.CodingTest.Chapter_03;
+package CodingTest.Chapter_03;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Ex_005 {
-
-    /* 나머지 합 구하기 */
     public void P10986() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine());
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(bf.readLine());
+        int N = Integer.parseInt(st.nextToken()); // 입력할 수의 개수 N
+        int M = Integer.parseInt(st.nextToken()); // 나눌 수 M
 
-        int N = Integer.parseInt(stringTokenizer.nextToken()); // 입력한 배열의 길이
-        int M = Integer.parseInt(stringTokenizer.nextToken()); // 나누어 떨어져야 하는 수
-        System.out.println("N=" + N + "M=" + M);
-
+        // 합 배열 생성
         int[] S = new int[N+1];
-
-        /* 합 배열 S[] 생성 */
-        stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-        for (int i = 1; i <= N; i++) {
-            S[i] = S[i-1] + Integer.parseInt(stringTokenizer.nextToken());
+        st = new StringTokenizer(bf.readLine());
+        for (int i=1; i<N+1; i++) {
+            S[i] = Integer.parseInt(st.nextToken()) + S[i-1];
         }
-        System.out.println("합 배열 S[]=" + Arrays.toString(S));
 
-        int zeroCnt = 0;
-        for (int i = 1; i<= N; i++) {
-            int remainder = S[i] % M; // 합 배열의 각 원소를 M으로 나눈 나머지
-            if (remainder == 0) { zeroCnt++; } // 0 의 개수 카운트
-            S[i] = remainder;
+        // 합 배열 요소 M으로 나누기
+        long[] remainderCnt = new long[M]; // 나머지가 동일한 수 카운트를 담는 배열
+        for (int i=1; i<N+1; i++) {
+            remainderCnt[S[i] % M]++;
         }
-        System.out.println("나머지로 이루어진 합 배열 S[]=" + Arrays.toString(S));
-        System.out.println("0 개수=" + zeroCnt);
 
-        int sameNumCnt = 0;
-        for (int i = 1; i <= N; i++) {
-                for (int j = i+1; j <= N; j++) {
-                    if (S[i] == S[j]) { sameNumCnt++; }
+        long answer = remainderCnt[0]; // 나머지가 0인 개수로 초기화
+        for (int i=0; i<remainderCnt.length; i++) {
+            if (remainderCnt[i] > 1) {
+                answer += remainderCnt[i] * (remainderCnt[i] - 1) / 2;
             }
         }
-        System.out.println(sameNumCnt);
-        System.out.println(zeroCnt + sameNumCnt);
+        System.out.println(answer);
     }
 }

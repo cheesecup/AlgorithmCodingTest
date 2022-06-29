@@ -1,32 +1,32 @@
-package main.CodingTest.Chapter_03;
+package CodingTest.Chapter_03;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
+/* 평균 구하기 */
 public class Ex_002 {
+    public void P1546() throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(bf.readLine());
 
-    /* 평균 구하기 */
-    public void P1546() {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
+        int N = Integer.parseInt(st.nextToken());
+
         int[] arr = new int[N];
-
-        /* 1차원 배열 arr[]에 입력한 점수 저장 */
-        for (int i = 0; i < arr.length; i++) {
-//            String score = sc.next();
-//            arr[i] = Integer.parseInt(score);
-            arr[i] = sc.nextInt();
+        st = new StringTokenizer(bf.readLine());
+        for (int i = 0 ; i < N; i++) {
+            arr[i] =  Integer.parseInt(st.nextToken());
         }
 
-        /* 최대값과 총합 점수 구하기 */
-        long max = 0;
+        long M = 0;
         long sum = 0;
         for (int i = 0; i < arr.length; i++) {
-//            max = arr[i];
-            if (arr[i] > max) { max = arr[i]; }
-            sum = sum + arr[i]; // 총합 점수
+            if ( M < arr[i]) {
+                M = arr[i];
+            }
+            sum = sum + arr[i];
         }
-
-        /* 출력값 */
-        System.out.println(sum * 100.0 / max / N);
+        System.out.println(sum * 100.0 / M / N);
     }
 }
